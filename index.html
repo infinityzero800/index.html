@@ -1,1 +1,306 @@
-hello world
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio | Putra Alfa Imanuel Larono</title>
+
+  <style>
+    :root {
+      --black: #0f0f0f;
+      --dark: #1a1a1a;
+      --gray: #8a8a8a;
+      --white: #ffffff;
+      --accent: #cfcfcf;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Inter", Arial, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    section {
+      padding: 100px 10%;
+    }
+
+    h1, h2, h3 {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 30px;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      background: url("bg.jpg") center/cover fixed;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      animation: fadeUp 1.2s ease forwards;
+    }
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 30px;
+      border: 2px solid var(--accent);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .profile-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%);
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      margin-bottom: 10px;
+    }
+
+    .hero span {
+      display: block;
+      margin-bottom: 20px;
+      color: var(--accent);
+    }
+
+    /* ===== ABOUT ===== */
+    .about {
+      background: var(--dark);
+    }
+
+    /* ===== PORTFOLIO ===== */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    .project {
+      padding: 30px;
+      background: transparent;
+      border: 1px solid #333;
+      transition: 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--white);
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: 0.4s;
+      z-index: 0;
+    }
+
+    .project:hover::before {
+      transform: scaleY(1);
+    }
+
+    .project * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .project:hover {
+      transform: translateY(-8px);
+    }
+
+    .project:hover h3,
+    .project:hover p {
+      color: var(--black);
+    }
+
+    /* ===== SKILLS ===== */
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .skill {
+      padding: 10px 22px;
+      border: 1px solid #444;
+      transition: 0.3s;
+    }
+
+    .skill:hover {
+      background: var(--white);
+      color: var(--black);
+      transform: scale(1.05);
+    }
+
+    /* ===== CONTACT ===== */
+    form {
+      max-width: 500px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 20px;
+      background: transparent;
+      border: 1px solid #444;
+      color: var(--white);
+    }
+
+    button {
+      padding: 14px 40px;
+      background: var(--white);
+      color: var(--black);
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+      background: #ddd;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      font-size: 0.85rem;
+    }
+
+    /* ===== ANIMATION ===== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: 1s;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="profile-img">
+        <img src="https://i.pinimg.com/736x/8c/e3/ec/8ce3ec723c89babf9a99624ca945f994.jpg">
+      </div>
+      <h1>Putra Alfa Imanuel Larono</h1>
+      <span>Creative Developer · Designer · Cybersecurity</span>
+      <p>Website Designer & Developer dengan fokus desain modern, clean code, dan keamanan sistem.</p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about reveal">
+    <h2>About Me</h2>
+    <p>Saya berfokus pada pengembangan website modern dengan pendekatan desain elegan dan sistem yang aman.</p>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section class="reveal">
+    <h2>Portfolio</h2>
+    <div class="portfolio-grid">
+      <div class="project">
+        <h3>Website Development</h3>
+        <p>Desain, pengembangan, dan keamanan website end-to-end.</p>
+      </div>
+      <div class="project">
+        <h3>Clean Code System</h3>
+        <p>Struktur kode scalable dan mudah dikembangkan.</p>
+      </div>
+      <div class="project">
+        <h3>Web Security</h3>
+        <p>Proteksi dari XSS, SQL Injection, dan brute force.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="about reveal">
+    <h2>Skills</h2>
+    <div class="skills-list">
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">UI/UX</div>
+      <div class="skill">Cyber Security</div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="reveal">
+    <h2>Contact</h2>
+    <form>
+      <input placeholder="Nama">
+      <input type="email" placeholder="Email">
+      <textarea rows="5" placeholder="Pesan"></textarea>
+      <button>Kirim</button>
+    </form>
+  </section>
+
+  <footer>
+    © 2026 Putra Alfa Imanuel Larono
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll(".reveal");
+    window.addEventListener("scroll", () => {
+      reveals.forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+          el.classList.add("active");
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
+
